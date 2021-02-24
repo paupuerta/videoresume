@@ -29,7 +29,8 @@ const VIDEO_EVENTS = [
   'durationchange',
   'progress',
   'canplaythrough',
-  'volumechange'
+  'volumechange',
+  'pictureinpicture'
 ]
 
 const VIDEO_ATTRS = [
@@ -129,7 +130,7 @@ class BaseVideoCore {
     }
   }
 
-  initResolution (source, medias = []) {
+  initResolution (source, _medias = []) {
     const { resolution } = this.config
     this.medias = parseMediaList(source)
     this.medias.forEach((media) => {
@@ -225,7 +226,7 @@ class BaseVideoCore {
     }
   }
 
-  setAudio (audio) {
+  setAudio (_audio) {
     // TODO
   }
 
@@ -347,9 +348,9 @@ class BaseVideoCore {
     const video = this.$video
     try {
       if (video !== document.pictureInPictureElement) {
-        video.requestPictureInPicture()
+        video.requestPictureInPicture();
       } else {
-        document.exitPictureInPicture()
+        document.exitPictureInPicture();
       }
     } catch (err) {
       console.error(err)

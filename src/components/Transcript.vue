@@ -1,6 +1,5 @@
 <template>
   <div class="transcript">
-    <span> transcript </span>
     <div id="cueParagraph0" class="paragraphSpan" data-starttime="0.33" data-endtime="16.43" style="margin: 20px 0px 30px" >
       <div class="mainCueContainer">
         <div class="textSpan" data-starttime="0" data-endtime="2.189">
@@ -53,23 +52,13 @@
 
 <script>
 import { inject } from "vue";
-// import ee from 'event-emitter'
-// import EVENTS from '@paupuerta/vue3-video-player'
 import { EVENTS } from "./vue3-video-player";
-// import MixinsPlayer from './vue3-video-player'
-// import _ee from './vue3-video-player'
-/*
-player.on(EVENTS.PLAY, () => {
-    // ...
-})
-*/
+
 let _ee = null;
-//ee()
 
 export default {
   name: "Transcript",
   components: {},
-  // mixins: [ MixinsPlayer ],
   setup() {
     _ee = inject("ee");
     const playerKey = inject("playerKey");
@@ -112,13 +101,14 @@ export default {
   beforeMount() {
     this.on(EVENTS.LIFECYCLE_INITING, this.init());
     this.on(EVENTS.TIMEUPDATE, this.timeupdate());
+    this.on(EVENTS.IN_PICTURE, this.inPicture());
+
     this.on(EVENTS.PROGRESS, () => {
       const bufferTime = this.$player.getBufferTime();
       const duration = this.$player.getDuration();
       if (bufferTime > 0 && duration > 0) {
         this.bufferProgress = ((bufferTime / duration) * 100).toFixed(2);
       }
-      console.log(this.progress);
     });
     this.on(EVENTS.LOADSTART, () => {
       const bufferTime = this.$player.getBufferTime();
@@ -136,6 +126,11 @@ export default {
         this.$container = this.$player.$el;
       }
     }, 
+    inPicture(value) {
+      return () => {
+        console.log("In picture Event " + value);
+      }
+    }, 
     timeupdate() {
       let _spans = this.spans
       let _ele = null
@@ -144,8 +139,6 @@ export default {
         if (!currentTime) {
           return
         }
-        // this.setRangeValue((time / duration * 100).toFixed(1));
-        //console.log(currentTime);
       
         let el = _spans.find((s) => { 
           return parseFloat(s.ini) <= parseFloat(currentTime) && parseFloat(s.fin) >= parseFloat(currentTime) 
@@ -228,13 +221,27 @@ export default {
 
 
 <style scoped>
+  @import '../assets/styles/variables.css';
+
+  .transcript {
+    position: relative;
+    width: 100%;
+    margin: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+  }
+
+  .mainCueContainer{
+    display: inline-block;
+  }
   .currentTextClass:not(.disabledHighlighting) > span {
-    background-color: rgba(35,151,255,0.28) !important;
+    background-color: var(--transcript-selected-text);
     transition: all 1s;
   }
 
   .textSpan > span {
-    background-color: white !important;
+    background-color: var(--content-background-color);
     transition: all 1.5s;
   }
 </style>

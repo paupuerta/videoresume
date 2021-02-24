@@ -1,0 +1,27 @@
+:root {
+    --font-family: "Roboto", "monospace","Helvetica", "Arial", sans-serif;
+    --background-color: rgb(89, 91, 97);
+    --primary-color: rgb(233, 233, 234);
+
+/* head */
+    --head-background-color: #4d4d4d;
+    --head-color: rgb(233, 233, 234);
+    --head-link-color: #FFFFFF;
+    --separator-color: #686868;
+
+    /* 
+    --content-background-color: white;
+    */
+    --content-background-color: rgb(233, 233, 234); 
+    --content-column-title-section: #595B61; 
+    --content-column-title-section-text: #E9e9ea; 
+    --border-color: #999;
+    --border-color-pane: #ccc;
+
+
+    --transcript-selected-text: rgba(35,151,255,0.28);
+
+
+    --footer-background-color: #444;
+    --footer-color: #999;
+  }

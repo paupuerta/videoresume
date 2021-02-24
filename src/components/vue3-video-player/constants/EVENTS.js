@@ -67,7 +67,8 @@ const EVENTS = {
   PROGRESS: 'progress',
   STALLED: 'stalled',
   LOADSTART: 'loadstart',
-  RESOLUTION_UPDATE: 'resolution_update'
+  RESOLUTION_UPDATE: 'resolution_update',
+  IN_PICTURE: 'pictureinpicture'
   // hls events docs: https://github.com/video-dev/hls.js/blob/master/src/events.js
   // ...HLS_EVENTS
 }

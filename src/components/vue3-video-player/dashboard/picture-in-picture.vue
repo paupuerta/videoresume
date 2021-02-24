@@ -46,6 +46,8 @@ export default {
     }
     this._playerKey = this.playerKey
   },
+  mounted () {
+  },
   methods: {
     requestPictureInPicture () {
       this.$player.requestPictureInPicture()

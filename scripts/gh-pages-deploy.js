@@ -1,3 +1,6 @@
+// https://dev.to/rolanddoda/deploy-to-github-pages-like-a-pro-with-github-actions-4hdg
+// https://blog.logrocket.com/build-deploy-vue-js-app-github-pages/
+
 /* eslint-disable no-console */
 const execa = require("execa");
 const fs = require("fs");

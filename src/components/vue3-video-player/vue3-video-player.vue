@@ -152,6 +152,15 @@ export default {
     })
     this._coreID = this.videoCore.id
     this.emit(EVENTS.LIFECYCLE_INITING, this.player)
+    const _this = this
+    this.player.$video.addEventListener("leavepictureinpicture", (_event) => {
+      console.log('leave')
+      _this.emit(EVENTS.IN_PICTURE, 'OUT')
+    });
+    this.player.$video.addEventListener("enterpictureinpicture", (_event) => {
+      console.log('enterpicture')
+      _this.emit(EVENTS.IN_PICTURE, 'IN')
+    });
     try {
       this.viewCore.map(item => {
         if (typeof item === 'function') {

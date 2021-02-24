@@ -35,7 +35,6 @@ export default {
   },
   setup () {
     provide('ee', ee())
-    
     const playerKey = 'key-' + guid()
     provide('playerKey', playerKey)
     return {
@@ -53,8 +52,9 @@ export default {
     "header  header  header"
 		"sidebar content content"
 		"footer  footer  footer";
-  grid-template-columns: 10% 60% 30%;
-  grid-template-rows: 5% 90% 5%;
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: 7% 88% 5%;
+  
   height: 100%;
 }
 
@@ -69,8 +69,5 @@ export default {
 }
 .content {
   grid-area: content;
-}
-.transcript {
-  grid-area: transcript;
 }
 </style>

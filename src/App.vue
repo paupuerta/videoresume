@@ -35,6 +35,7 @@ body {
 #app {
   height: 100%;
   width: 100%;
-  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 </style>
