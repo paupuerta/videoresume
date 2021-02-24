@@ -33,7 +33,7 @@ export function isMobileInLandscapeOrientation () {
     quadrant -= 4
   }
   return quadrant === 1 || quadrant === 3
-};
+}
 
 export function generateID () {
   return 'xxxxxxxx-4xxx'.replace(/[xy]/g, function (c) {
@@ -41,12 +41,12 @@ export function generateID () {
     const v = c === 'x' ? r : (r & 0x3 | 0x8)
     return v.toString(16)
   })
-};
+}
 
 export function timeToSeconds (str) {
   const arr = str.split(':')
   return arr[0] * 3600 + arr[1] * 60 + arr[2] * 1
-};
+}
 
 export function paddingLeadZero (num) {
   if (num < 10) {
@@ -65,7 +65,7 @@ export function secondsToTime (second) {
   const min = Math.floor((second - hour * 3600) / 60)
   const sec = Math.floor(second - hour * 3600 - min * 60)
   return (hour > 0 ? [hour, min, sec] : [min, sec]).map(add0).join(':')
-};
+}
 
 export function getFormatBandwidth (speed) {
   if (!speed) {
@@ -89,7 +89,7 @@ export function getElementOffsets (obj) {
     left,
     top
   }
-};
+}
 
 export function guid () {
   function s4 () {
@@ -116,7 +116,7 @@ export function fallbackCopyTextToClipboard (text, callback) {
   }
 
   document.body.removeChild(textArea)
-};
+}
 
 export function copyText (text, callback = () => {}) {
   if (!navigator.clipboard) {
@@ -128,7 +128,7 @@ export function copyText (text, callback = () => {}) {
   }, (err) => {
     console.error('Async: Could not copy text: ', err)
   })
-};
+}
 
 export function loadImage (src, done, errorCallback) {
   const image = new Image()
@@ -139,7 +139,7 @@ export function loadImage (src, done, errorCallback) {
   image.onerror = (e) => {
     errorCallback && errorCallback(e)
   }
-};
+}
 
 // const _isSafari = () => {
 //   return navigator.userAgent.indexOf('Safari') > -1
@@ -158,7 +158,7 @@ export function debounce (fun, delay) {
       fun.call(that, args)
     }, delay)
   }
-};
+}
 
 // find the correct part of video buffered
 export function getMatchRangeTime (time, ranges) {
@@ -173,7 +173,7 @@ export function getMatchRangeTime (time, ranges) {
     }
   }
   return time
-};
+}
 
 function getMediaSource () {
   return window.MediaSource || window.WebKitMediaSource

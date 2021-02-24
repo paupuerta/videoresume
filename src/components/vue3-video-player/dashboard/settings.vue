@@ -107,14 +107,14 @@ export default {
     preventHide (e) {
       e.stopPropagation()
     },
-    showResolutionPanel (e) {
+    showResolutionPanel (_e) {
       if (this.medias.length <= 1) {
         return
       }
       this.currentPanel = false
       this.resolutionListPanel = true
     },
-    showSpeedPanel (e) {
+    showSpeedPanel (_e) {
       this.currentPanel = false
       this.speedListPanel = true
     },

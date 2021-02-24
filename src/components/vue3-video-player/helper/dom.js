@@ -6,7 +6,7 @@ export function removeAllChildrenNodes (el) {
   while (el.firstChild) {
     el.removeChild(el.firstChild)
   }
-};
+}
 
 export function toggle (el, className) {
   if (this.hasClass(el, className)) {
@@ -14,7 +14,7 @@ export function toggle (el, className) {
   } else {
     this.addClass(el, className)
   }
-};
+}
 
 export function switchChildClass (el, childSelector, className, tellFunc) {
   const children = el.querySelectorAll(childSelector)
@@ -26,11 +26,11 @@ export function switchChildClass (el, childSelector, className, tellFunc) {
       this.removeClass(item, className)
     }
   }
-};
+}
 
 export function hasClass (el, className) {
   return el.className.indexOf(className) > -1
-};
+}
 
 export function addClass (dom, className) {
   if (!className || !dom) {
@@ -44,7 +44,7 @@ export function addClass (dom, className) {
     _classNameList.push(className)
     dom.className = _classNameList.join(' ')
   }
-};
+}
 
 export function removeClass (dom, className) {
   if (dom.classList) {
@@ -62,11 +62,11 @@ export function removeClass (dom, className) {
     }
     dom.className = _classNameList.join(' ')
   }
-};
+}
 
 export function getAttr (el, key) {
   return el.getAttribute(key)
-};
+}
 
 export function isDescendant (parent, child) {
   let node = child.parentNode
@@ -77,7 +77,7 @@ export function isDescendant (parent, child) {
     node = node.parentNode
   }
   return false
-};
+}
 
 export function drag (e, el, coor) {
   if (!el) {
@@ -104,7 +104,7 @@ export function drag (e, el, coor) {
     left,
     top
   }
-};
+}
 
 export function registerFullScreenChangeListener (listener) {
   document.addEventListener('fullscreenchange', () => {
